@@ -1,0 +1,25 @@
+<title>Login</title>
+<h1>Login</h1>
+ 
+<% form_for @user_session, :url => user_session_path do |f| %>	
+  <%= f.label :login %><br />
+  <%= f.text_field :login %>
+	<br style="clear:both" />
+  <%= error_message_on "user_session", "login" %><br />
+	
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+	<br style="clear:both" />
+  <%= error_message_on "user_session", "password" %><br />
+	
+  <%= f.check_box :remember_me %><%= f.label :remember_me %>
+	<br style="clear:both" />
+  <br />
+	
+  <%= f.submit "Login" %>
+	<br style="clear:both" />
+	<br />
+	
+	Don't have account yet? <%= link_to "Signup Here!", signup_url %> | 
+	<%= link_to "Password Forgotten?" %>
+<% end %>

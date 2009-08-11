@@ -1,0 +1,49 @@
+<% title("Step 2") %>
+This is step 2
+<br /><br />
+
+<% form_for :order, :url => { :action => "step3" } do |f| %>
+
+	<p>
+		<h3>Please Select :</h3>
+		<%= f.radio_button("color_copy", "yes") %>
+		<%= f.label(:color_copy, "Color Copy", :for => "order_color_copy_yes") %>
+		
+		<%= f.radio_button("color_copy", "no", :checked => true) %>
+		<%= f.label :color_copy, "Black & White Copy", :for => "order_color_copy_no" %>
+
+		<br style="clear:both" />
+		<%= error_message_on "order", "no_of_pages" %>
+  </p>
+	<p>
+		<h3>Please Select :</h3>
+		<%= f.radio_button("single_sided", "yes", :checked => true) %>
+		<%= f.label(:single_sided, "Single Sided", :for => "order_single_sided_yes") %>
+		
+		<%= f.radio_button("single_sided", "no") %>
+		<%= f.label :single_sided, "Double Sided", :for => "order_single_sided_no" %>
+
+		<br style="clear:both" />
+		<%= error_message_on "order", "single_sided" %>
+  </p>
+	<p>
+		<h3>Finished Page Size :</h3>
+		<%= f.select(:pagesize_id, Pagesize.all.collect {|p| [ p.page_size, p.id.to_i ] }) %>
+	</p>
+	<p>
+		<h3>Paper Type :</h3>
+		<%= f.select(:papertype_id, Papertype.all.collect {|p| [ p.paper_type, p.id.to_i ] }) %>
+	</p>
+	<p>
+		<h3>Paper Color :</h3>
+		<%= f.select(:papercolor_id, Color.all.collect {|c| [ c.color_name, c.id.to_i ] }) %>
+	</p>
+	<p>
+		<%= f.check_box :bleeded %>
+		<%= f.label :bleeded, "Bleed these pages", :for => "order_bleeded" %>		
+	</p>
+	<p>
+		<%= link_to (image_tag "agt_back.png", :border => 0), step1_orders_path %>
+    <%= image_submit_tag "agt_forward.png", :border => 0 %>
+  </p>
+<% end %>

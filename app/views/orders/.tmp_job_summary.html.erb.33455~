@@ -1,0 +1,221 @@
+<% title("Job Summary") %>
+
+<% unless @order.blank? %>
+	<p>
+		<% unless @order.no_of_copies.blank? %>
+		  <b>No. of Copies :</b>
+		  <%=h @order.no_of_copies %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.no_of_pages.blank? %>
+		  <b>No. of Pages :</b>
+		  <%=h @order.no_of_pages %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.job_name.blank? %>
+		  <b>Job Name :</b>
+		  <%=h @order.job_name %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.color_copy.blank? %>
+			<b>Color Copy :</b>
+			<%= (@order.color_copy == true)?"Yes":"No" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.single_sided.blank? %>
+			<b>Side :</b>
+			<%= (@order.single_sided == true)?"Single":"Double" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.pagesize.blank? && @order.pagesize.page_size.blank? %>
+		  <b>Page Size :</b>
+		  <%=h @order.pagesize.page_size %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.bleeded.blank? %>
+			<b>Bleeded :</b>
+			<%= (@order.bleeded == true)?"Yes":"No" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.papertype.blank? && @order.papertype.paper_type.blank? %>
+		  <b>Paper Type :</b>
+		  <%=h @order.papertype.paper_type  %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.papercolor.blank? && @order.papercolor.color_name.blank? %>
+		  <b>Paper Color :</b>
+		  <%=h @order.papercolor.color_name %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.collation.blank? %>
+			<b>Collation :</b>
+			<%= (@order.collation == true)?"Collated":"Not Collated" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.folding.folding_type.blank? %>
+			<b>Folding Type :</b>
+			<%=h @order.folding.folding_type  %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.stapling.stapling_type.blank? %>
+			<b>Stapling Type :</b>
+			<%=h @order.stapling.stapling_type %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.three_holes_drilled.blank? %>
+			<b>3-holes drilled :</b>
+			<%= (@order.three_holes_drilled == true)?"Yes":"No" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.bind.bind_type.blank? %>
+			<b>Binding Type :</b>
+			<%=h @order.bind.bind_type %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_front_cover.blank? %>
+			<b>Front Cover :</b>
+			<%= (@order.hard_front_cover == true)?"Hard Front Cover":"Clear Front Cover" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_back_cover.hard_back_cover_type.blank? %>
+			<b>Hard Front Cover Type :</b>
+			<%=h @order.hard_back_cover.hard_back_cover_type %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% if !@order.hard_front_cover_material.blank? && !@order.hard_front_cover_material.hard_cover_material_type.blank? %>
+			<b>Hard Front Cover Material Type :</b>
+			<%=h @order.hard_front_cover_material.hard_cover_material_type %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% if !@order.hard_front_cover_color.blank? && !@order.hard_front_cover_color.color_name.blank? %>
+			<b>Hard Front Cover Color :</b>
+			<%=h @order.hard_front_cover_color.color_name %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_front_cover_from_pdf.blank? %>
+			<b>Hard Front Cover From pdf :</b>
+			<%= (@order.hard_front_cover_from_pdf == true)?"Yes":"No" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_front_cover_single_sided.blank? %>
+			<b>Hard Front Cover Sided :</b>
+			<%= (@order.hard_front_cover_single_sided == true)?"Single Sided":"Double Sided" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_front_cover_coloured.blank? %>
+			<b>Hard Front Cover Coloured :</b>
+			<%= (@order.hard_front_cover_coloured == true)?"Color Copying":"Black & White Copying" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% if !@order.hard_back_cover.blank? && !@order.hard_back_cover.hard_back_cover_type.blank? %>
+			<b>Hard Back Cover :</b>
+			<%=h @order.hard_back_cover.hard_back_cover_type %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% if !@order.hard_back_cover_material.blank? && !@order.hard_back_cover_material.hard_cover_material_type.blank? %>
+			<b>Hard Back Cover Material Type :</b>
+			<%=h @order.hard_back_cover_material.hard_cover_material_type %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% if !@order.hard_back_cover_color.blank? && !@order.hard_back_cover_color.color_name.blank? %>
+			<b>Hard Back Cover Color :</b>
+			<%=h @order.hard_back_cover_color.color_name %>
+		<% end %>
+	</p>	
+	
+	<p>
+		<% unless @order.hard_back_cover_from_pdf.blank? %>
+			<b>Hard Back Cover From pdf :</b>
+			<%= (@order.hard_back_cover_from_pdf == true)?"Yes":"No" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_back_cover_single_sided.blank? %>
+			<b>Hard Back Cover Sided :</b>
+			<%= (@order.hard_back_cover_single_sided == true)?"Single Sided":"Double Sided" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.hard_back_cover_coloured.blank? %>
+			<b>Hard Back Cover Coloured :</b>
+			<%= (@order.hard_back_cover_coloured == true)?"Color Copying":"Black & White Copying" %>	
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.price_per_copy.blank? %>
+			<b>Price Per Copy :</b>
+			<%=h @order.price_per_copy %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.price_per_set.blank? %>
+			<b>Price Per Set :</b>
+			<%=h @order.price_per_set %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.price_of_finishing.blank? %>
+			<b>Price of Finishing :</b>
+			<%=h @order.price_of_finishing %>
+		<% end %>
+	</p>
+	
+	<p>
+		<% unless @order.total_price.blank? %>
+			<b>Total Price :</b>
+			<%=h @order.total_price %>
+		<% end %>
+	</p>
+<% end %>
+

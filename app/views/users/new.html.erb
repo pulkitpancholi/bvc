@@ -1,0 +1,9 @@
+<title>Signup</title>
+<h1>Register</h1>
+ 
+<% form_for @user, :url => account_path do |f| %>
+  <%= render :partial => "form", :object => f %>	
+  <%= f.submit "Register" %><br style="clear:both" />
+	<br />
+	Already registered? <%= link_to "Login here!", login_url %>
+<% end %>

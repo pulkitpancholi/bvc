@@ -1,0 +1,84 @@
+<% title("Step 3") %>
+This is step 3
+
+<% form_for :order, :url => { :action => "job_summary" } do |f| %>
+	<p>
+		<h3>Please Select :</h3>
+		<%= f.radio_button("collation", "yes", :checked => true) %>
+		<%= f.label(:collation, "Collated", :for => "order_collation_yes") %>
+		
+		<%= f.radio_button("collation", "no") %>
+		<%= f.label :collation, "Not collated", :for => "order_collation_no" %>
+
+		<br style="clear:both" />
+		<%= error_message_on "order", "collation" %>
+  </p>
+	<p>
+		<h3>Please Select :</h3>		
+		<% @foldings.each do |folding| %>
+			<%= f.radio_button("folding_id", "#{folding.id}") %>
+			<%= f.label(:folding_id, "#{folding.folding_type}", :for => "order_folding_id_#{folding.id}") %>
+			<% @folding_ids << folding.id %>
+		<% end %>
+		
+		<br style="clear:both" />
+		<%= link_to_function ("Clear Selection", "clear_folding('#{@folding_ids.join(",")}')") %>
+		<%= error_message_on "order", "folding_id" %>
+  </p>
+	<p>
+		<h3>Please Select :</h3>	
+		<% @staplings.each do |stapling| %>	
+			<%= f.radio_button("stapling_id", "#{stapling.id}") %>
+			<%= f.label(:stapling_id, "#{stapling.stapling_type}", :for => "order_stapling_id_#{stapling.id}") %>
+			<% @stapling_ids << stapling.id %>
+		<% end %>
+		
+		<br style="clear:both" />
+		<%= link_to_function ("Clear Selection", "clear_stapling('#{@stapling_ids.join(",")}')") %>
+		<%= error_message_on "order", "stapling_id" %>
+  </p>
+	<p>
+		<%= f.check_box :three_holes_drilled %>
+		<%= f.label :three_holes_drilled, "3-holes drilled", :for => "order_three_holes_drilled" %>		
+	</p>
+	<p>
+		<h3>Please Select :</h3>		
+		<% @binds.each do |bind| %>
+			<%= f.radio_button("bind_id", "#{bind.id}") %>
+			<%= f.label(:bind_id, "#{bind.bind_type}", :for => "order_bind_id_#{bind.id}") %>
+			<% @bind_ids << bind.id %>
+		<% end %>
+		
+		<br style="clear:both" />
+		<%= link_to_function ("Clear Selection", "clear_bind('#{@bind_ids.join(",")}')") %>
+		<%= error_message_on "order", "bind_id" %>
+  </p>
+	<p>
+		<h3>Please Select :</h3>
+		<%= f.radio_button("hard_front_cover", "no") %>
+		<%= f.label(:hard_front_cover, "Clear Front Cover", :for => "order_hard_front_cover_no") %>
+		
+		<%= f.radio_button("hard_front_cover", "yes") %>
+		<%= f.label(:hard_front_cover, "Hard Front Cover", :for => "order_hard_front_cover_yes") %>
+
+		<br style="clear:both" />
+		<%= link_to_function ("Clear Selection", "clear_front_cover()") %>
+		<%= error_message_on "order", "hard_front_cover" %>
+  </p>
+	<p>
+		<h3>Please Select :</h3>
+		<% @hard_back_covers.each do |hard_back_cover| %>		
+			<%= f.radio_button("hard_back_cover_id", "#{hard_back_cover.id}") %>
+			<%= f.label(:hard_back_cover_id, "#{hard_back_cover.hard_back_cover_type}", :for => "order_hard_back_cover_id_#{hard_back_cover.id}") %>
+			<% @hard_back_cover_ids << hard_back_cover.id %>
+		<% end %>
+		
+		<br style="clear:both" />
+		<%= link_to_function ("Clear Selection", "clear_back_cover('#{@hard_back_cover_ids.join(",")}')") %>
+		<%= error_message_on "order", "bind_id" %>
+  </p>
+	<p>
+		<%= link_to (image_tag "agt_back.png", :border => 0), step2_orders_path %>
+    <%= image_submit_tag "agt_forward.png", :border => 0 %>
+  </p>
+<% end %>

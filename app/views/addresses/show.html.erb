@@ -1,0 +1,55 @@
+<% title("My Address") %>
+
+<p>
+  <b>First name:</b>
+  <%=h @address.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @address.last_name %>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%=h @address.company_name %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%=h @address.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%=h @address.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @address.city %>
+</p>
+
+<p>
+  <b>Zip code:</b>
+  <%=h @address.zip_code %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @address.country %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @address.phone %>
+</p>
+
+<p>
+  <b>Address Type:</b>
+  <%= @address.residential_address == true ? "Residential" : "Shipping" %>
+</p>
+
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>

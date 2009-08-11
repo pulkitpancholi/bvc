@@ -1,0 +1,28 @@
+This is step1
+<br style="clear:both"/>
+<br />
+
+<% form_for :order, :url => { :action => "step2" } do |f| %>
+
+  <p>
+    <%= f.label :no_of_copies %><br />
+    <%= f.text_field :no_of_copies %>
+		<br style="clear:both" />
+		<%= error_message_on "order", "no_of_copies" %>
+  </p>
+	<p>
+    <%= f.label :no_of_pages %><br />
+    <%= f.text_field :no_of_pages %>
+		<br style="clear:both" />
+		<%= error_message_on "order", "no_of_pages" %>
+  </p>
+	<p>
+    <%= f.label :job_name %><br />
+    <%= f.text_field :job_name %>
+		<br style="clear:both" />
+		<%= error_message_on "order", "job_name" %>
+  </p>
+	<p>
+    <%= image_submit_tag "agt_forward.png", :border => 0 %>
+  </p>
+<% end %>

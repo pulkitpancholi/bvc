@@ -1,0 +1,7 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  stapling_type: MyString
+
+two:
+  stapling_type: MyString
